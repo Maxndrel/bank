@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.hero-gradient-bg {
+  background: linear-gradient(to bottom, #e3eed4, #6b9071, #375534, #0f2a1d);
+}
+
+.hero-text-color {
+    color: rgb(167, 168, 167);
+
+}
