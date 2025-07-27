@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import Landingnav from "../../components/section/landingnav";
 import InvestmentHero from "../../assets/investment-hero.png";
 import Plan1 from "../../assets/plan1.png";
 import Plan2 from "../../assets/plan2.png";
@@ -7,12 +8,18 @@ import Plan3 from "../../assets/plan3.png";
 import Step1 from "../../assets/step1.png";
 import Step2 from "../../assets/step2.png";
 import Step3 from "../../assets/step3.png";
+import Why from "../../assets/why.png";
 import Investor1 from "../../assets/investor1.jpg";
 import Investor2 from "../../assets/investor2.jpg";
+import Footer from "../../components/section/footer";
+
 
 const Landinginvestment = () => {
   return (
     <main>
+{/* Top Navigation */}
+      <Landingnav />
+
       {/* HERO SECTION */}
       <section className="py-5 bg-light">
         <Container>
@@ -118,12 +125,17 @@ const Landinginvestment = () => {
               <div
                 style={{
                   background: "#eaf8f1",
-                  height: "250px",
+                  height: "400px",
+                  width: "400px",
                   borderRadius: "12px",
                 }}
                 className="d-flex justify-content-center align-items-center shadow"
               >
-                <p className="text-success fw-bold">[Illustration / Graphic Here]</p>
+                <img
+                src={Why}
+                alt="Investment Opportunities"
+                className="img-fluid rounded shadow"
+                style={{ maxHeight: "400px", width: "400px", objectFit: "cover" }} />
               </div>
             </Col>
           </Row>
@@ -197,7 +209,7 @@ const Landinginvestment = () => {
                 <img
                   src={Investor1}
                   alt="Investor testimonial"
-                  className="rounded-circle mb-3"
+                  className="rounded-circle mb-3 mx-auto d-block"
                   style={{ width: "90px", height: "90px", objectFit: "cover" }}
                 />
                 <blockquote className="blockquote">
@@ -213,7 +225,7 @@ const Landinginvestment = () => {
                 <img
                   src={Investor2}
                   alt="Investor testimonial"
-                  className="rounded-circle mb-3"
+                  className="rounded-circle mb-3 mx-auto d-block"
                   style={{ width: "90px", height: "90px", objectFit: "cover" }}
                 />
                 <blockquote className="blockquote">
@@ -258,6 +270,9 @@ const Landinginvestment = () => {
           </Row>
         </Container>
       </section>
+
+      {/* footer */}
+      <Footer />
     </main>
   );
 };
