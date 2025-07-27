@@ -6,5 +6,13 @@
 
 .hero-text-color {
     color: rgb(167, 168, 167);
+    font-size: 1rem;
 
+}
+
+@media (max-width: 576px) {
+  .hero-text-color {
+        color: rgb(239, 241, 239);
+    font-size: 1.25rem; 
+  }
 }

@@ -22,70 +22,72 @@ const LandingHome = () => {
       {/* ✅ Top Navigation */}
       <Landingnav />
 
-      {/* ✅ Hero Section */}
-      <section className="hero-gradient-bg mt-5 px-3">
-        <Container fluid className="px-md-5 py-3">
-          <Row className="align-items-center">
-            {/* ▶ Left: Hero Text */}
-            <Col xs={12} lg={6} className="mb-4 mb-lg-0">
-              <div className="left-hero text-center text-lg-start">
-                <h1 className="left-header mb-3">
-                  Your Money, <br />
-                  Your Dreams, <br />
-                  Our Priority.
-                </h1>
-                <p className="hero-text-color mb-4">
-                  Your journey matters to us. At Qetra, we work every day to <br />
-                  create solutions that empower individuals, families, and <br />
-                  businesses because when you succeed, our community thrives.
-                </p>
-                <div>
-                  <Button variant="success" className="me-2 mb-2">
-                    Register Now
-                  </Button>
-                  <Button variant="outline-success" className="mb-2">
-                    Login
-                  </Button>
-                </div>
-              </div>
+      {/* HERO SECTION */}
+<section className="hero-gradient-bg mt-5 px-3">
+  <Container fluid className="px-md-5 py-3">
+    <Row className="align-items-center">
+      {/* Left side text */}
+      <Col xs={12} lg={6} className="mb-4 mb-lg-0">
+        <div className="left-hero text-center text-lg-start">
+          <h1 className="left-header mb-3">
+            Your Money, <br />
+            Your Dreams, <br />
+            Our Priority.
+          </h1>
+          <p className="hero-text-color mb-4 fs-5 fs-md-6">
+            Your journey matters to us. At Qetra, we work every day to <br />
+            create solutions that empower individuals, families, and <br />
+            businesses because when you succeed, our community thrives.
+          </p>
+          <div>
+            <Button variant="success" className="me-2 mb-2">
+              Register Now
+            </Button>
+            <Button variant="outline-success" className="mb-2">
+              Login
+            </Button>
+          </div>
+        </div>
+      </Col>
+
+      {/* Right side image and features */}
+      <Col xs={12} lg={6} className="position-relative">
+        {/* Hide image on small devices */}
+        <div className="text-center d-none d-lg-block">
+          <img
+            src={Heroimage}
+            alt="Qetra hero"
+            className="img-fluid mb-4 w-50 mx-auto d-block"
+          />
+        </div>
+
+        {/* Features block (stacked on small screens) */}
+        <div className="mt-4 mt-lg-0">
+          <Row className="g-4 text-center text-md-start">
+            <Col xs={12} md={6}>
+              <h2 className="hero-text-color">01</h2>
+              <h3 className="hero-text-color">Fast Transfer</h3>
+              <p className="hero-text-color">
+                Send and receive money instantly with Qetra’s secure,
+                lightning-fast transfer system.
+              </p>
             </Col>
 
-            {/* ▶ Right: Hero Image and Quick Features */}
-            <Col xs={12} lg={6} className="position-relative">
-              <div className="text-center">
-                <img
-                  src={Heroimage}
-                  alt="Qetra hero"
-                  className="img-fluid mb-4 w-50 mx-auto d-block d-xs-none"
-                />
-              </div>
-
-              {/* ▶ Bottom overlay: quick feature highlights */}
-              <div className="position-absolute bottom-0 start-0 w-100">
-                <Row className="g-4 text-center text-md-start p-3">
-                  <Col xs={12} md={6}>
-                    <h2 className="hero-text-color">01</h2>
-                    <h3 className="hero-text-color">Fast Transfer</h3>
-                    <p className="hero-text-color">
-                      Send and receive money instantly with Qetra’s secure,
-                      lightning-fast transfer system.
-                    </p>
-                  </Col>
-
-                  <Col xs={12} md={6}>
-                    <h2 className="hero-text-color">02</h2>
-                    <h3 className="hero-text-color">Easy to Use</h3>
-                    <p className="hero-text-color">
-                      Qetra’s intuitive platform is simple and seamless, making
-                      every banking task effortless.
-                    </p>
-                  </Col>
-                </Row>
-              </div>
+            <Col xs={12} md={6}>
+              <h2 className="hero-text-color">02</h2>
+              <h3 className="hero-text-color">Easy to Use</h3>
+              <p className="hero-text-color">
+                Qetra’s intuitive platform is simple and seamless, making
+                every banking task effortless.
+              </p>
             </Col>
           </Row>
-        </Container>
-      </section>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</section>
+
 
       {/* ✅ Partner/Info Marquee */}
       <Marquee />
@@ -268,7 +270,7 @@ const LandingHome = () => {
                 <img
                   src={User1}
                   alt="Happy user"
-                  className="rounded-circle mb-3"
+                  className="rounded-circle mb-3 d-block mx-auto"
                   style={{ width: "100px", height: "100px", objectFit: "cover" }}
                 />
                 <blockquote className="blockquote">
@@ -288,7 +290,7 @@ const LandingHome = () => {
                 <img
                   src={User2}
                   alt="Happy user"
-                  className="rounded-circle mb-3"
+                  className="rounded-circle mb-3 d-block mx-auto"
                   style={{ width: "100px", height: "100px", objectFit: "cover" }}
                 />
                 <blockquote className="blockquote">
@@ -308,7 +310,7 @@ const LandingHome = () => {
                 <img
                   src={User3}
                   alt="Happy user"
-                  className="rounded-circle mb-3"
+                  className="rounded-circle mb-3 d-block mx-auto"
                   style={{ width: "100px", height: "100px", objectFit: "cover" }}
                 />
                 <blockquote className="blockquote">
