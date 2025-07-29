@@ -5,6 +5,8 @@ import Landinghome from './pages/Landingpage/landinghome';
 import Landingabout from './pages/Landingpage/landingabout';
 import Landinginvestment from './pages/Landingpage/ladinginvestment';
 import Landingcontact from './pages/Landingpage/landingcontact';
+import Login from './pages/Landingpage/login';
+import Register from './pages/Landingpage/register';
 import './index.css'
 
 function App() {
@@ -22,8 +24,16 @@ function App() {
 
         {/* investment page */}
         <Route path="/Landinginvestment" element={<Landinginvestment />} />
-
+            {/* contact us page */}
         <Route path="/Landingcontact" element={<Landingcontact />} />
+
+        {/* login page */}
+        <Route path="/Login" element={<Login/>} />
+
+        {/* register */}
+        <Route path="/Register" element={<Register/>} />
+
+
       </Routes>
     </Router>
        

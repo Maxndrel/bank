@@ -19,7 +19,7 @@ const Landingabout = () => {
       <Landingnav />
 
       {/* HERO SECTION */}
-      <section className="py-5 bg-light">
+      <section className="mt-5 py-5 bg-light">
         <Container>
           <Row className="align-items-center">
             <Col md={6} className="text-center text-md-start mb-4 mb-md-0">
@@ -35,7 +35,7 @@ const Landingabout = () => {
               <img
                 src={AboutHero}
                 alt="About Qetra"
-                className="img-fluid rounded shadow"
+                className="img-fluid rounded shadow mx-auto d-block"
                 style={{ maxHeight: "350px", objectFit: "cover" }}
               />
             </Col>

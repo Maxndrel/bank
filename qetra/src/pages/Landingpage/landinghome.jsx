@@ -15,6 +15,7 @@ import Cbn from "../../assets/cbn.png";
 import Ndic from "../../assets/ndic.png";
 import "./style/home.css";
 import Footer from "../../components/section/footer";
+import {Link } from "react-router-dom";
 
 const LandingHome = () => {
   return (
@@ -40,13 +41,14 @@ const LandingHome = () => {
             businesses because when you succeed, our community thrives.
           </p>
           <div>
-            <Button variant="success" className="me-2 mb-2">
+            <Link to="/Register" className="btn btn-success me-2 mb-2 fw-bold">
               Register Now
-            </Button>
-            <Button variant="outline-success" className="mb-2">
+            </Link>
+            <Link to="/login" className="btn btn-outline-success mb-2 fw-bold">
               Login
-            </Button>
+            </Link>
           </div>
+
         </div>
       </Col>
 

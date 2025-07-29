@@ -20,7 +20,7 @@ const Landinginvestment = () => {
       <Landingnav />
 
       {/* HERO SECTION */}
-      <section className="py-5 bg-light">
+      <section className="mt-5 py-5 bg-light">
         <Container>
           <Row className="align-items-center">
             <Col md={6} className="mb-4 mb-md-0 text-center text-md-start">
@@ -37,7 +37,7 @@ const Landinginvestment = () => {
               <img
                 src={InvestmentHero}
                 alt="Investment Opportunities"
-                className="img-fluid rounded shadow"
+                className="img-fluid rounded shadow mx-auto d-block"
                 style={{ maxHeight: "350px", objectFit: "cover" }}
               />
             </Col>
@@ -128,7 +128,7 @@ const Landinginvestment = () => {
                   width: "400px",
                   borderRadius: "12px",
                 }}
-                className="d-flex justify-content-center align-items-center shadow"
+                className="d-flex justify-content-center align-items-center shadow mx-auto d-block"
               >
                 <img
                 src={Why}

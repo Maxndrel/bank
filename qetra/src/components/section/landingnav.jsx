@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
-import { Link } from "react-router-dom";
-import Nav from 'react-bootstrap/Nav';
+import { NavLink, Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import Qetralogo from "../../assets/qetra-logo.png";
 import './landingnav.css';
 
@@ -9,7 +9,6 @@ const Landingnav = () => {
   return (
     <Navbar expand="lg" fixed="top" className="bg-body-tertiary">
       <Container>
-        {/* Brand */}
         <Navbar.Brand as={Link} to="/" className="fw-bold d-flex align-items-center text-success">
           <img
             src={Qetralogo}
@@ -18,30 +17,43 @@ const Landingnav = () => {
             className="d-inline-block align-top me-2"
             alt="logo"
           />
-         QETRA
+          QETRA
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
           <Nav className="mx-auto">
-            <Nav.Link as={Link} to="/" className="ms-3 fw-medium">
+            <NavLink
+              to="/"
+              className={({ isActive }) => `ms-3 fw-medium nav-link-custom ${isActive ? 'active-link' : ''}`}
+            >
               Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Landingabout" className="ms-3 fw-medium">
+            </NavLink>
+            <NavLink
+              to="/Landingabout"
+              className={({ isActive }) => `ms-3 fw-medium nav-link-custom ${isActive ? 'active-link' : ''}`}
+            >
               About Us
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Landinginvestment" className="ms-3 fw-medium">
+            </NavLink>
+            <NavLink
+              to="/Landinginvestment"
+              className={({ isActive }) => `ms-3 fw-medium nav-link-custom ${isActive ? 'active-link' : ''}`}
+            >
               Investment
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Landingcontact" className="ms-3 fw-medium">
+            </NavLink>
+            <NavLink
+              to="/Landingcontact"
+              className={({ isActive }) => `ms-3 fw-medium nav-link-custom ${isActive ? 'active-link' : ''}`}
+            >
               Contact Us
-            </Nav.Link>
+            </NavLink>
           </Nav>
 
-          {/* Right Side Button */}
           <Nav>
-            <button className="btn btn-success fw-bold">Get Started</button>
+            <Link to="/login" className="btn btn-success fw-bold">
+              Get Started
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
