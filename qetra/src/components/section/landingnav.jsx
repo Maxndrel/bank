@@ -13,7 +13,7 @@ const Landingnav = () => {
         <Navbar.Brand as={Link} to="/" className="fw-bold d-flex align-items-center text-success">
           <img
             src={Qetralogo}
-            width="40"
+            width="38"
             height="30"
             className="d-inline-block align-top me-2"
             alt="logo"
@@ -34,7 +34,7 @@ const Landingnav = () => {
             <Nav.Link as={Link} to="/Landinginvestment" className="ms-3 fw-medium">
               Investment
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="ms-3 fw-medium">
+            <Nav.Link as={Link} to="/Landingcontact" className="ms-3 fw-medium">
               Contact Us
             </Nav.Link>
           </Nav>

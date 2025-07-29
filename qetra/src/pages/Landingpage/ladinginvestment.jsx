@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Landingnav from "../../components/section/landingnav";
 import InvestmentHero from "../../assets/investment-hero.png";
