@@ -14,6 +14,8 @@ import Transaction from './pages/main page/transactions';
 import Investment from './pages/main page/investment';
 import Settings from './pages/main page/settings';
 import FundWallet from './pages/main page/fundwallet';
+import TransferMoney from './pages/main page/transfer';
+import InvestNow from './pages/main page/invest';
 
 function App() {
 
@@ -58,6 +60,12 @@ function App() {
 
         {/* fund wallet page */}
         <Route path="/Fund" element={<FundWallet />} />
+
+        {/* transfer page */}
+        <Route path="/Transfer" element={<TransferMoney />} />
+
+        {/* invest now page */}
+        <Route path="/Investnow" element={<InvestNow />} />
 
 
       </Routes>

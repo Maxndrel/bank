@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import {
   FaWallet,
   FaExchangeAlt,
@@ -218,19 +219,21 @@ const Dashboard = () => {
               <h4 className="fw-bold text-success mb-3 text-center text-md-start">Quick Actions</h4>
               <Row className="g-3">
                 <Col xs={12} sm={6} md={4}>
-                  <Button variant="outline-success" className="w-100 fw-semibold d-flex align-items-center justify-content-center gap-2">
-                    <FaMoneyBillWave /> Fund Wallet
-                  </Button>
+                  <Link to="/Fund" className="btn btn-outline-success w-100 fw-semibold d-flex align-items-center justify-content-center gap-2">
+  <FaMoneyBillWave /> Fund Wallet
+</Link>
                 </Col>
                 <Col xs={12} sm={6} md={4}>
-                  <Button variant="outline-success" className="w-100 fw-semibold d-flex align-items-center justify-content-center gap-2">
-                    <FaPaperPlane /> Transfer Money
-                  </Button>
+                <Link to="/Transfer" className="btn btn-outline-success w-100 fw-semibold d-flex align-items-center justify-content-center gap-2">
+  <FaPaperPlane /> Transfer Money
+</Link>
+                  
                 </Col>
                 <Col xs={12} sm={6} md={4}>
-                  <Button variant="outline-success" className="w-100 fw-semibold d-flex align-items-center justify-content-center gap-2">
-                    <FaPiggyBank /> Invest Now
-                  </Button>
+                <Link to="/Investnow" className="btn btn-outline-success w-100 fw-semibold d-flex align-items-center justify-content-center gap-2">
+  <FaPiggyBank /> Invest Now
+</Link>
+                  
                 </Col>
               </Row>
             </div>
