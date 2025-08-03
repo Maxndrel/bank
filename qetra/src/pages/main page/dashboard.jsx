@@ -57,7 +57,7 @@ const Dashboard = () => {
                         <FaExchangeAlt className="me-3 text-success fs-3" />
                         <div>
                           <Card.Title className="mb-0">Last Transaction</Card.Title>
-                          <h6 className="fw-bold">₦15,000 - Debit</h6>
+                          <h6 className="fw-bold">₦15,000 Debit</h6>
                         </div>
                       </div>
                     </Card.Body>

@@ -51,7 +51,7 @@ const DashboardSidebar = () => {
 
           <Nav.Link
             as={Link}
-            to="/dashboard/investment"
+            to="/Investment"
             className={`text-white d-flex align-items-center mb-3 ${isActive("/dashboard/investment") ? "active-link" : ""}`}
           >
             <FaChartLine className="me-2" />
@@ -60,7 +60,7 @@ const DashboardSidebar = () => {
 
           <Nav.Link
             as={Link}
-            to="/dashboard/settings"
+            to="/Settings"
             className={`text-white d-flex align-items-center mb-3 ${isActive("/dashboard/settings") ? "active-link" : ""}`}
           >
             <FaCogs className="me-2" />
@@ -71,7 +71,7 @@ const DashboardSidebar = () => {
 
           <Nav.Link
             as={Link}
-            to="/logout"
+            to="/"
             className="text-white d-flex align-items-center"
           >
             <FaSignOutAlt className="me-2" />
@@ -82,27 +82,27 @@ const DashboardSidebar = () => {
 
       {/* Bottom Navigation - Small Screens */}
       <div className="bottom-nav d-lg-none bg-success text-white fixed-bottom d-flex justify-content-around py-2 shadow">
-        <Link to="/dashboard/home" className={`text-white text-center ${isActive("/dashboard/home") ? "active-icon" : ""}`}>
+        <Link to="/Dashboard" className={`text-white text-center ${isActive("/dashboard/home") ? "active-icon" : ""}`}>
           <FaHome size={20} />
           <div style={{ fontSize: "12px" }}>Home</div>
         </Link>
 
-        <Link to="/dashboard/wallet" className={`text-white text-center ${isActive("/dashboard/wallet") ? "active-icon" : ""}`}>
+        <Link to="/Wallet" className={`text-white text-center ${isActive("/dashboard/wallet") ? "active-icon" : ""}`}>
           <FaWallet size={20} />
           <div style={{ fontSize: "12px" }}>Wallet</div>
         </Link>
 
-        <Link to="/dashboard/transactions" className={`text-white text-center ${isActive("/dashboard/transactions") ? "active-icon" : ""}`}>
+        <Link to="/Transactions" className={`text-white text-center ${isActive("/dashboard/transactions") ? "active-icon" : ""}`}>
           <FaExchangeAlt size={20} />
           <div style={{ fontSize: "12px" }}>Transact</div>
         </Link>
 
-        <Link to="/dashboard/investment" className={`text-white text-center ${isActive("/dashboard/investment") ? "active-icon" : ""}`}>
+        <Link to="/Investment" className={`text-white text-center ${isActive("/dashboard/investment") ? "active-icon" : ""}`}>
           <FaChartLine size={20} />
           <div style={{ fontSize: "12px" }}>Invest</div>
         </Link>
 
-        <Link to="/dashboard/settings" className={`text-white text-center ${isActive("/dashboard/settings") ? "active-icon" : ""}`}>
+        <Link to="/Settings" className={`text-white text-center ${isActive("/dashboard/settings") ? "active-icon" : ""}`}>
           <FaCogs size={20} />
           <div style={{ fontSize: "12px" }}>Settings</div>
         </Link>

@@ -11,6 +11,8 @@ import './index.css'
 import Dashboard from './pages/main page/dashboard';
 import Wallet from './pages/main page/wallet';
 import Transaction from './pages/main page/transactions';
+import Investment from './pages/main page/investment';
+import Settings from './pages/main page/settings';
 
 function App() {
 
@@ -46,6 +48,12 @@ function App() {
 
         {/* transactions */}
         <Route path="/Transactions" element={<Transaction />} />
+
+        {/* investment */}
+        <Route path="/Investment" element={<Investment />} />
+
+        {/* settings */}
+        <Route path="/Settings" element={<Settings />} />
 
 
       </Routes>
