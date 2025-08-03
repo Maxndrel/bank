@@ -8,6 +8,7 @@ import Landingcontact from './pages/Landingpage/landingcontact';
 import Login from './pages/Landingpage/login';
 import Register from './pages/Landingpage/register';
 import './index.css'
+import Dashboard from './pages/main page/dashboard';
 
 function App() {
 
@@ -32,6 +33,11 @@ function App() {
 
         {/* register */}
         <Route path="/Register" element={<Register/>} />
+
+
+        {/* main page */}
+        {/* home page */}
+        <Route path="/Dashboard" element={<Dashboard />} />
 
 
       </Routes>

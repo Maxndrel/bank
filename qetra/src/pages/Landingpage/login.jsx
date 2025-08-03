@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 import Landingnav from "../../components/section/landingnav";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../../components/section/footer";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate(); // 🚀 for redirecting after login
 
   const validateForm = () => {
     const newErrors = {};
@@ -36,8 +37,9 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Proceed with login logic
+      // Simulate successful login
       alert("Login successful (demo)");
+      navigate("/dashboard"); // ✅ redirect to dashboard
     }
   };
 
