@@ -9,6 +9,8 @@ import Login from './pages/Landingpage/login';
 import Register from './pages/Landingpage/register';
 import './index.css'
 import Dashboard from './pages/main page/dashboard';
+import Wallet from './pages/main page/wallet';
+import Transaction from './pages/main page/transactions';
 
 function App() {
 
@@ -38,6 +40,12 @@ function App() {
         {/* main page */}
         {/* home page */}
         <Route path="/Dashboard" element={<Dashboard />} />
+
+        {/* wallet page */}
+        <Route path="/Wallet" element={<Wallet />} />
+
+        {/* transactions */}
+        <Route path="/Transactions" element={<Transaction />} />
 
 
       </Routes>

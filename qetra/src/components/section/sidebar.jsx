@@ -24,7 +24,7 @@ const DashboardSidebar = () => {
         <Nav className="flex-column">
           <Nav.Link
             as={Link}
-            to="/dashboard/home"
+            to="/Dashboard"
             className={`text-white d-flex align-items-center mb-3 ${isActive("/dashboard/home") ? "active-link" : ""}`}
           >
             <FaHome className="me-2" />
@@ -33,7 +33,7 @@ const DashboardSidebar = () => {
 
           <Nav.Link
             as={Link}
-            to="/dashboard/wallet"
+            to="/Wallet"
             className={`text-white d-flex align-items-center mb-3 ${isActive("/dashboard/wallet") ? "active-link" : ""}`}
           >
             <FaWallet className="me-2" />
@@ -42,7 +42,7 @@ const DashboardSidebar = () => {
 
           <Nav.Link
             as={Link}
-            to="/dashboard/transactions"
+            to="/Transactions"
             className={`text-white d-flex align-items-center mb-3 ${isActive("/dashboard/transactions") ? "active-link" : ""}`}
           >
             <FaExchangeAlt className="me-2" />
