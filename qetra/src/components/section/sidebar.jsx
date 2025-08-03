@@ -19,7 +19,7 @@ const DashboardSidebar = () => {
   return (
     <>
       {/* Sidebar - Large Screens */}
-      <div className="sidebar bg-success text-white d-none d-lg-flex flex-column p-3 vh-100">
+      <div className="sidebar bg-success text-white d-none d-lg-flex flex-column p-5 vh-100">
         <h4 className="fw-bold mb-4">Dashboard</h4>
         <Nav className="flex-column">
           <Nav.Link

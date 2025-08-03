@@ -31,7 +31,7 @@ const DashboardNav = () => {
   ];
 
   return (
-    <Navbar expand="lg" className="bg-white shadow-sm py-3 px-3 border-bottom" fixed="top">
+    <Navbar expand="lg" className="bg-white shadow-sm py-3 px-4 border-bottom" fixed="top">
       <Container fluid>
         {/* Logo and Brand Name inline */}
         <Navbar.Brand href="/" className="d-flex align-items-center text-success fw-bold">
