@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import DashboardNav from "../../components/section/dashboardnav";
 import Sidebar from "../../components/section/sidebar";
-import defaultAvatar from "../../assets/team1.png"; // Replace with your actual placeholder avatar
+import defaultAvatar from "../../assets/team1.png";
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("profile");
