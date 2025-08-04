@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Row,
@@ -8,20 +8,33 @@ import {
   ProgressBar,
   Button,
   Form,
+  Badge,
+  OverlayTrigger,
+  Tooltip,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   BarElement,
   CategoryScale,
   LinearScale,
-  Tooltip,
+  Tooltip as ChartTooltip,
   Legend,
 } from "chart.js";
+import {
+  FaChartLine,
+  FaMoneyBillWave,
+  FaClock,
+  FaEye,
+  FaEyeSlash,
+  FaCopy,
+  FaWallet,
+} from "react-icons/fa";
 import DashboardNav from "../../components/section/dashboardnav";
 import Sidebar from "../../components/section/sidebar";
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+ChartJS.register(BarElement, CategoryScale, LinearScale, ChartTooltip, Legend);
 
 const Investment = () => {
   const investments = [
@@ -52,13 +65,25 @@ const Investment = () => {
   ];
 
   const totalInvestment = investments.reduce((sum, inv) => sum + inv.amount, 0);
-
   const [filter, setFilter] = useState("All");
+  const [showBalance, setShowBalance] = useState(true);
+  const [showAccount, setShowAccount] = useState(true);
+  const accountNumber = "1234567890";
+
+  useEffect(() => {
+    const storedVisibility = localStorage.getItem("showInvestmentBalance");
+    const storedAccountVisibility = localStorage.getItem("showAccountNumber");
+    if (storedVisibility !== null) setShowBalance(storedVisibility === "true");
+    if (storedAccountVisibility !== null) setShowAccount(storedAccountVisibility === "true");
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("showInvestmentBalance", showBalance);
+    localStorage.setItem("showAccountNumber", showAccount);
+  }, [showBalance, showAccount]);
 
   const filteredInvestments =
-    filter === "All"
-      ? investments
-      : investments.filter((inv) => inv.status === filter);
+    filter === "All" ? investments : investments.filter((inv) => inv.status === filter);
 
   const chartData = {
     labels: investments.map((inv) => inv.title),
@@ -79,10 +104,17 @@ const Investment = () => {
   const chartOptions = {
     responsive: true,
     plugins: {
-      legend: {
-        position: "bottom",
-      },
+      legend: { position: "bottom" },
+      tooltip: { mode: "index", intersect: false },
     },
+    scales: {
+      y: { beginAtZero: true },
+    },
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(accountNumber);
+    alert("Account number copied!");
   };
 
   return (
@@ -99,30 +131,84 @@ const Investment = () => {
               My Investments
             </h2>
 
-            {/* Total Investment Card */}
+            {/* Investment Summary Section */}
             <Card className="mb-4 shadow-sm border-0">
-              <Card.Body>
-                <h5 className="fw-semibold text-muted">Total Investment</h5>
-                <h2 className="text-success fw-bold">₦{totalInvestment.toLocaleString()}</h2>
+              <Card.Body className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                <div>
+                  <h6 className="fw-semibold text-muted mb-1">Total Investment</h6>
+                  <h3 className="text-success fw-bold d-flex align-items-center">
+                    {showBalance ? `₦${totalInvestment.toLocaleString()}` : "••••••••"}
+                    <Button
+                      variant="link"
+                      size="sm"
+                      onClick={() => setShowBalance((prev) => !prev)}
+                      className="ms-2 p-0 text-success"
+                    >
+                      {showBalance ? <FaEyeSlash /> : <FaEye />}
+                    </Button>
+                  </h3>
+
+                  <div className="d-flex align-items-center text-muted mt-1">
+                    <span className="me-2">Account Number:</span>
+                    <span className="fw-semibold">
+                      {showAccount ? accountNumber : "••••••••"}
+                    </span>
+                    <Button
+                      variant="link"
+                      size="sm"
+                      className="ms-2 p-0 text-success"
+                      onClick={() => setShowAccount((prev) => !prev)}
+                    >
+                      {showAccount ? <FaEyeSlash /> : <FaEye />}
+                    </Button>
+                    {showAccount && (
+                      <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>Copy Account Number</Tooltip>}
+                      >
+                        <Button
+                          variant="link"
+                          size="sm"
+                          className="ms-1 p-0 text-success"
+                          onClick={copyToClipboard}
+                        >
+                          <FaCopy />
+                        </Button>
+                      </OverlayTrigger>
+                    )}
+                  </div>
+
+                  <Link
+                    to="/wallet"
+                    className="btn btn-outline-success mt-3 d-inline-flex align-items-center"
+                  >
+                    <FaWallet className="me-2" />
+                    Withdraw to Wallet
+                  </Link>
+                </div>
+
+                <Link to="/Investnow" className="btn btn-success mt-3 mt-md-0">
+                  Invest Now
+                </Link>
               </Card.Body>
             </Card>
 
-            {/* Investment Chart */}
+            {/* Chart Section */}
             <Card className="mb-4 shadow-sm border-0">
               <Card.Body>
-                <h5 className="fw-semibold mb-3">Investment Performance</h5>
+                <h5 className="fw-semibold mb-3">
+                  <FaChartLine className="me-2 text-success" />
+                  Investment Performance
+                </h5>
                 <Bar data={chartData} options={chartOptions} />
               </Card.Body>
             </Card>
 
-            {/* Filter */}
+            {/* Filter Dropdown */}
             <Row className="align-items-center mb-3">
               <Col md={4}>
-                <Form.Select
-                  value={filter}
-                  onChange={(e) => setFilter(e.target.value)}
-                >
-                  <option value="All">All</option>
+                <Form.Select value={filter} onChange={(e) => setFilter(e.target.value)}>
+                  <option value="All">All Investments</option>
                   <option value="Ongoing">Ongoing</option>
                   <option value="Completed">Completed</option>
                 </Form.Select>
@@ -136,14 +222,25 @@ const Investment = () => {
                   <Card className="shadow-sm border-0 h-100">
                     <Card.Body>
                       <h5 className="fw-bold text-success mb-2">{item.title}</h5>
-                      <p className="mb-1">
+
+                      <p className="d-flex align-items-center mb-3">
+                        <FaMoneyBillWave className="me-2 text-muted" />
                         <strong>Amount:</strong> ₦{item.amount.toLocaleString()}
                       </p>
-                      <p className="mb-1">
-                        <strong>Expected Returns:</strong> ₦{item.returns.toLocaleString()}
+                      <p className="d-flex align-items-center mb-3">
+                        <FaChartLine className="me-2 text-muted" />
+                        <strong>Returns:</strong> ₦{item.returns.toLocaleString()}
                       </p>
-                      <p className="mb-1"><strong>Duration:</strong> {item.duration}</p>
-                      <p className="mb-2"><strong>Status:</strong> {item.status}</p>
+                      <p className="d-flex align-items-center mb-3">
+                        <FaClock className="me-2 text-muted" />
+                        <strong>Duration:</strong> {item.duration}
+                      </p>
+                      <p className="mb-2">
+                        <strong>Status: </strong>
+                        <Badge bg={item.status === "Completed" ? "success" : "info"}>
+                          {item.status}
+                        </Badge>
+                      </p>
 
                       <ProgressBar
                         now={item.progress}
@@ -169,7 +266,9 @@ const Investment = () => {
             {/* Investment History Table */}
             <Card className="shadow-sm border-0">
               <Card.Body>
-                <h5 className="fw-semibold mb-3 text-success text-center text-md-start">Investment History</h5>
+                <h5 className="fw-semibold mb-3 text-success text-center text-md-start">
+                  Investment History
+                </h5>
                 <Table responsive hover bordered className="mb-0">
                   <thead className="table-success text-center">
                     <tr>
@@ -187,7 +286,11 @@ const Investment = () => {
                         <td>₦{item.amount.toLocaleString()}</td>
                         <td>₦{item.returns.toLocaleString()}</td>
                         <td>{item.duration}</td>
-                        <td>{item.status}</td>
+                        <td>
+                          <Badge bg={item.status === "Completed" ? "success" : "info"}>
+                            {item.status}
+                          </Badge>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
