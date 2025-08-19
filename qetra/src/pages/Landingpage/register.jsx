@@ -64,10 +64,14 @@ const Register = () => {
     }
   };
 
+  localStorage.setItem("email", formData.email);
+localStorage.setItem("password", formData.password);
+localStorage.setItem("fullname", formData.fullName);
+
   // If success, show success screen
   if (isSuccess) {
     return (
-      <Container fluid className="vh-100 d-flex align-items-center justify-content-center bg-light">
+      <Container fluid className="vh-100 d-flex align-items-center justify-content-center bg-light register-left">
         <Card className="shadow-sm border-0 p-5 text-center">
           <h2 className="text-success fw-bold">Welcome, {formData.fullName} 🎉</h2>
           <p className="mt-2">Registration was successful.</p>

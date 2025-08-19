@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
-import Landingnav from "../../components/section/landingnav";
+import { Container, Row, Col, Form, Button, Card, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../../components/section/footer";
+import "../../../src/index.css";
+
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate(); // 🚀 for redirecting after login
+  const [loginError, setLoginError] = useState("");
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -32,31 +33,58 @@ const Login = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
+    setLoginError("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Simulate successful login
-      alert("Login successful (demo)");
-      navigate("/dashboard"); // ✅ redirect to dashboard
+      const storedEmail = localStorage.getItem("email");
+      const storedPassword = localStorage.getItem("password");
+
+      if (storedEmail === formData.email && storedPassword === formData.password) {
+        navigate("/welcome-back");
+      } else {
+        setLoginError("Invalid email or password");
+      }
     }
   };
 
   return (
     <main>
-      {/* Navigation */}
-      <Landingnav />
+      <section>
+        <Container fluid>
+          <Row className="min-vh-100">
+            
+            {/* Left column with gradient + text/illustration */}
+            <Col 
+              md={6} 
+              className="d-none d-md-flex flex-column justify-content-center align-items-center text-white p-5  register-left"
+            >
+              <h1 className="fw-bold display-5">Welcome Back to Qetra</h1>
+              <p className="mt-3 fs-5 text-light text-center">
+                Securely manage your finances, track investments, and grow with us.
+              </p>
+              {/* Optional illustration image */}
+              <img 
+                src="https://undraw.co/api/illustrations/secure_login.svg" 
+                alt="Login illustration" 
+                className="img-fluid mt-4"
+                style={{ maxHeight: "250px" }}
+              />
+            </Col>
 
-      {/* Login Section */}
-      <section className="mt-5 py-5 bg-light">
-        <Container>
-          <Row className="justify-content-center">
-            <Col md={6} lg={5}>
-              <Card className="shadow-sm border-0 p-4">
-                <h3 className="mb-4 text-center text-success fw-bold">
-                  Login to Qetra
-                </h3>
+            {/* Right column with form */}
+            <Col md={6} className="d-flex justify-content-center align-items-center p-5">
+              <Card className="shadow-sm border-0 p-4 w-100" style={{ maxWidth: "400px" }}>
+                <h3 className="mb-4 text-center text-success fw-bold">Login to Qetra</h3>
+
+                {loginError && (
+                  <Alert variant="danger" className="text-center">
+                    {loginError}
+                  </Alert>
+                )}
+
                 <Form onSubmit={handleSubmit} noValidate>
                   <Form.Group className="mb-3" controlId="formEmail">
                     <Form.Label>Email address</Form.Label>
@@ -89,21 +117,13 @@ const Login = () => {
                   </Form.Group>
 
                   <div className="d-flex justify-content-between align-items-center mb-3">
-                    <Form.Check
-                      type="checkbox"
-                      label="Remember me"
-                      id="rememberMe"
-                    />
+                    <Form.Check type="checkbox" label="Remember me" id="rememberMe" />
                     <a href="#" className="text-success small">
                       Forgot password?
                     </a>
                   </div>
 
-                  <Button
-                    variant="success"
-                    type="submit"
-                    className="w-100 fw-bold"
-                  >
+                  <Button variant="success" type="submit" className="w-100 fw-bold">
                     Login
                   </Button>
                 </Form>
@@ -119,9 +139,6 @@ const Login = () => {
           </Row>
         </Container>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </main>
   );
 };

@@ -7,6 +7,7 @@ import Landinginvestment from './pages/Landingpage/ladinginvestment';
 import Landingcontact from './pages/Landingpage/landingcontact';
 import Login from './pages/Landingpage/login';
 import Register from './pages/Landingpage/register';
+import WelcomeBack from './pages/Landingpage/welcomeback';
 import './index.css'
 import Dashboard from './pages/main page/dashboard';
 import Wallet from './pages/main page/wallet';
@@ -40,6 +41,9 @@ function App() {
 
         {/* register */}
         <Route path="/Register" element={<Register/>} />
+
+        {/* welcome back */}
+        <Route path="/welcome-back" element={<WelcomeBack />} />
 
 
         {/* main page */}
