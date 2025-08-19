@@ -1,16 +1,14 @@
 .nav-link.active {
   padding-bottom: 0;
   color: #198754 !important;
-  border-bottom: 4px dashed #198754;
   font-weight: bold;
 }
 
 .nav-link-custom {
   color: #198754;
   text-decoration: none;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
+  border-bottom: 2px dashed transparent;
+  transition: all 0.1s ease;
 }
 
 .nav-link-custom:hover {
@@ -22,3 +20,14 @@
 .active-link {
   border-bottom: 4px dashed #198754;
 }
+
+.nav-link-custom.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: green;
+}
+

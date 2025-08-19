@@ -1,1 +1,6 @@
 @import "tailwindcss";
+.register-left {
+  background: linear-gradient(135deg, #198754, #0f5132);
+  color: white;
+  text-align: center;
+}
