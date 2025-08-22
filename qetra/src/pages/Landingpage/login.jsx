@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Card, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+// import Loginimg from "../../assets/loginimg.png"
 import "../../../src/index.css";
 
 
@@ -66,12 +67,12 @@ const Login = () => {
                 Securely manage your finances, track investments, and grow with us.
               </p>
               {/* Optional illustration image */}
-              <img 
-                src="https://undraw.co/api/illustrations/secure_login.svg" 
+              {/* <img 
+                src={loginimg.png} 
                 alt="Login illustration" 
                 className="img-fluid mt-4"
-                style={{ maxHeight: "250px" }}
-              />
+                style={{ maxHeight: "180px" }}
+              /> */}
             </Col>
 
             {/* Right column with form */}
